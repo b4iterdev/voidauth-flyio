@@ -3,7 +3,7 @@ primary_region = "sin" #CHANGE ME
 swap_size_mb = 512
 
 [build]
-  image = "voidauth/voidauth:latest"
+  dockerfile = "Dockerfile"
 
 [env]
   DB_ADAPTER = "postgres"
@@ -12,6 +12,10 @@ swap_size_mb = 512
   DB_NAME = "postgres"
   DB_SSL = "false"
   DB_SSL_VERIFICATION = "false"
+#  APP_TITLE = ""
+#  APP_COLOR = ""
+#  APP_FONT = ""
+#  CONTACT_EMAIL = ""
 
 [[mounts]]
   source = "voidauth_config"

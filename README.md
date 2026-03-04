@@ -49,7 +49,20 @@ fly secrets set -a voidauth \
 
 ---
 
-## 5) Deploy
+## 5) Customize branding/templates (optional)
+
+Edit files under:
+
+- `customization/branding/custom.css`
+- `customization/email_templates/**`
+
+At image build time, these are copied into `/app/customization-seed`.
+(Do not put these files under `/opt` because the hardened base image may not preserve/execute those paths as expected.)
+At startup, they are copied into `/app/config` (your Fly volume mount) before VoidAuth starts.
+
+---
+
+## 6) Deploy
 
 ```bash
 fly deploy -a voidauth --ha=false
@@ -57,7 +70,7 @@ fly deploy -a voidauth --ha=false
 
 ---
 
-## 6) First login
+## 7) First login
 
 Get startup logs:
 
