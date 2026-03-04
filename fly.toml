@@ -12,9 +12,9 @@ swap_size_mb = 512
   DB_NAME = "postgres"
   DB_SSL = "false"
   DB_SSL_VERIFICATION = "false"
-#  APP_TITLE = ""
-#  APP_COLOR = ""
-#  APP_FONT = ""
+#  APP_TITLE = "VoidAuth"
+#  APP_COLOR = "#906bc7"
+#  APP_FONT = "monospace"
 #  CONTACT_EMAIL = ""
 
 [[mounts]]
