@@ -47,6 +47,11 @@ fly secrets set -a voidauth \
   DB_PASSWORD="<postgres-password>"
 ```
 
+Optional, set in `fly.toml` `[env]` or as secrets:
+- `APP_TITLE`, `APP_COLOR`, `APP_FONT`, `CONTACT_EMAIL` (see commented lines in `fly.toml`)
+- `TRUSTED_PROXIES`: since v1.15.0 this controls which proxies' client-IP headers are trusted. The default (`loopback, linklocal, uniquelocal`) already covers Fly's internal proxy addresses, so real client IPs are detected out of the box. Only set it explicitly if you place your own proxy in front of Fly.
+- SMTP settings (`SMTP_HOST`, `SMTP_FROM`, ...) if you want invitations, verification, or password resets to send email.
+
 ---
 
 ## 5) Customize branding/templates (optional)
@@ -78,4 +83,4 @@ Get startup logs:
 fly logs -a voidauth --no-tail
 ```
 
-On first startup, VoidAuth prints initial admin credentials in logs. Use those credentials to sign in, then create/update your permanent admin user immediately.
+On first startup, VoidAuth prints a one-time setup link for the initial admin account (`auth_admin`) to the logs. Copy the link from the log output, open it in a browser to set the admin password, then sign in and immediately create/update your permanent admin user.
